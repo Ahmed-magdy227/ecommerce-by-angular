@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;" >
+    <img [src]="prd?.imgUrl" class="card-img-top" alt="..." BorderBox>
+    <div class="card-body">
+      <h5 class="card-title">{{prd?.name}}</h5>
+      <p class="card-text">price:{{prd?.price}}</p>
+      <p class="card-text">quantity:{{prd?.quantity}}</p>
+   <div class="btn-group">
+    <button class="btn btn-warning" (click)="nextFun()" [disabled]="currentproductID == prdIDlist[prdIDlist.length-1]"> next</button>
+    <button class="btn btn-danger" (click)="previosFun()" [disabled]="currentproductID == prdIDlist[0]">previos</button>
+   </div>
+
+    </div>
+
+  </div>
+  <div>
+    <label for=""> search</label>
+    <input type="text" class="form-control" id="search" name="search " #prdName >
+    <button class="btn btn-danger" (click)="searchBYprd(prdName.value)">search product</button>
+  </div>

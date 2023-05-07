@@ -1,0 +1,52 @@
+<!-- day7add new product -->
+
+<!-- <button class="btn btn-warning">add new product</button> -->
+
+<a class="btn btn-warning" [routerLink]="['/newProduct']">add new</a>
+<h1>{{myDate|date:'short'}}</h1>
+
+<table class="table">
+    <thead>
+      <tr class="">
+        <th scope="col">num</th>
+        <th scope="col">name</th>
+        <th scope="col">image</th>
+        <th scope="col">quantity</th>
+        <th scope="col">price in usd</th>
+        <th scope="col">price in egp</th>
+        <th scope="col">datails</th>
+        <th scope="col">count</th>
+
+
+        <th scope="col">buy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container   *ngFor="let prod of prdListOfCat; let i =index" >
+        <tr [hidden]="prod.quantity==0">
+        <!-- <tr  *ngFor="let prod of productList; let i =index" [ngStyle]="{ 'backgroung-coloe':(prod.quantity==0)?'white':'yellow'}"> -->
+
+            <td>{{i+1}}</td>
+            <td>{{prod.name}}</td>
+
+            <td><img [src]="prod.imgUrl"width="200" height="180" ></td>
+            <td>{{prod.quantity}}</td>
+           <!-- <td>
+            <span *ngIf="prod.quantity>0">{{prod.quantity}}</span>
+            <span *ngIf="prod.quantity>0">out of store</span>
+
+
+           </td> -->
+            <td>{{prod.price |currency:'usd'}}</td>
+            <td>{{prod.price |usdTegp |currency:'egp'}}</td>
+            <td>            <button class="btn btn-danger" (click)="showDetails(prod.id)">details</button> </td>
+            <td><input type="number" class="form-control"#itemsCount></td>
+           <td> <button class="btn btn-danger"[disabled]="prod.quantity==0" (click)="updateTotlaPrice(prod.price,itemsCount.value)" >buy</button></td>
+
+        </tr>
+
+      </ng-container>
+    </tbody>
+
+    </table>
+    <!-- <h2 class="bg-warning"> total price :{{orderTotal}}</h2> -->

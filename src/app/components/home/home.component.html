@@ -1,0 +1,9 @@
+<div>
+  <img src="assets/1.jpg" *ngIf="showImg" alt=""  height="100px"/>
+</div>
+
+<h1 *ngIf="showName ; ">{{ iti.trackName }}</h1>
+<td><button class="btn btn-danger" (click)="toggleImg()">buy</button></td>
+<input  class="form-control"  type="text" [(ngModel)]="yourValue" >
+<h1>{{yourValue |dateBirth }}</h1>
+

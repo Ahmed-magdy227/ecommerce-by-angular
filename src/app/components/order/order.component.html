@@ -1,0 +1,13 @@
+<!-- order component -->
+<!-- two way biding -->
+<h2>select your product</h2>
+<select name="cat" id="cat" class="form-control" [(ngModel)]="selectedCatID">
+
+
+<option value="0">all</option>
+
+    <option *ngFor="let cat of catList" [value]="cat.id" >{{ cat.name }}</option>
+</select>
+<h3 class="bg-danger"> your cat id{{selectedCatID}}</h3>
+<app-products [recievedID]="selectedCatID" (totalPriceChanged)="totalInParentFun($event)"></app-products>
+<h1 class="bg-info" >present total price</h1>
